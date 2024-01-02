@@ -2,12 +2,21 @@ package com.example.onepiecefilmsusingjson.modelAbu;
 
 import android.content.Intent;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Result {
     //fetchs the whole results
 
+    @SerializedName("pagination") //we really dont neeed would specifiy/page the name here in my variable name differ from the json field
+    @Expose// from Json library.These annotations are used to customize the serialization and deserialization of Json data when working
+            //with Json as the Json converter, these annotations allow you to control the mapping between your java object and jason key
     private Integer pagination;
+
+    @SerializedName("data")
+    @Expose
     private List<OnePieceCollection> data;
 
     public Integer getPagination() {
