@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName;
 import java.util.List;
 
 public class Result {
-    //fetchs the whole results
+    //fetchs the whole results FROM our json collection class
 
     @SerializedName("pagination") //we really dont neeed would specifiy/page the name here in my variable name differ from the json field
     @Expose// from Json library.These annotations are used to customize the serialization and deserialization of Json data when working
