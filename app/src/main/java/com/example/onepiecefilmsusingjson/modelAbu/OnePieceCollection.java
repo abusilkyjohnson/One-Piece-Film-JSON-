@@ -26,7 +26,6 @@ public class OnePieceCollection {
         public String background;
         public int year;
         public Broadcast broadcast;
-
     }
 
 
