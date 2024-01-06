@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class OnePieceRepository {
     //acts as a bridge between the view model, which is the presentation layer and the data sources such as a network API for or a local database.
@@ -30,7 +32,25 @@ public class OnePieceRepository {
 
     public MutableLiveData<List<OnePieceCollection>> getMutableLiveData() {
         OnePieceApiService onePieceApiService = RetrofitAbuInstances.getService();
-        Call<Result> call = onePieceApiService.GetOnePieceTitle(application.getApplicationContext().getString(R.string.q);
-    }
+        Call<Result> call = onePieceApiService.GetOnePieceTitle(application.getApplicationContext().getString(R.string.q));
 
+        call.enqueue(new Callback<Result>() {
+            @Override
+            public void onResponse(Call<Result> call, Response<Result> response) {
+                Result result = response.body();//this getting the info an putting it in the response body
+                if(result != null && result.getData() != null)
+                {
+                   onePiece =  (ArrayList<OnePieceCollection>) result.getData();
+                   mutableLiveData.setValue(onePiece);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Result> call, Throwable t) {
+
+            }
+        });//It's typically used when you want to perform the network request in the background thread and handle
+                        //the response on the main UI thread.While execute method is a synchronous method for making Http requests is typically used when you want
+                return mutableLiveData;
+    }
 }
