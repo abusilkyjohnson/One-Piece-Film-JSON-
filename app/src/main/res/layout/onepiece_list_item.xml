@@ -50,7 +50,7 @@
                 android:id="@+id/onePieceTitle"/>
 
             <TextView
-                android:text="@{Integer.toString(film.setRank())}"
+                android:text="@{Integer.toString(film.rank)}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/onePieceTitle"

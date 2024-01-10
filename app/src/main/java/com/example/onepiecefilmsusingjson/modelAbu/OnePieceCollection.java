@@ -1,5 +1,9 @@
 package com.example.onepiecefilmsusingjson.modelAbu;
 
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
+
+import com.example.onepiecefilmsusingjson.BR;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -7,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 //our class online from json to pojo converter
-public class OnePieceCollection {
-
+public class OnePieceCollection extends BaseObservable {
+                                        //enables automatic data binding
 
     public OnePieceCollection() {
     }
@@ -237,155 +241,8 @@ public class OnePieceCollection {
     }
 
 
-    public class From
-    {
-        private int day;
-
-        private int month;
-
-        private int year;
-
-        public void setDay(int day){
-            this.day = day;
-        }
-        public int getDay(){
-            return this.day;
-        }
-        public void setMonth(int month){
-            this.month = month;
-        }
-        public int getMonth(){
-            return this.month;
-        }
-        public void setYear(int year){
-            this.year = year;
-        }
-        public int getYear(){
-            return this.year;
-        }
-    }
-
-    public class To
-    {
-        private String day;
-
-        private String month;
-
-        private String year;
-
-        public void setDay(String day){
-            this.day = day;
-        }
-        public String getDay(){
-            return this.day;
-        }
-        public void setMonth(String month){
-            this.month = month;
-        }
-        public String getMonth(){
-            return this.month;
-        }
-        public void setYear(String year){
-            this.year = year;
-        }
-        public String getYear(){
-            return this.year;
-        }
-    }
 
 
-    public class Prop
-    {
-        private From from;
-
-        private To to;
-
-        public void setFrom(From from){
-            this.from = from;
-        }
-        public From getFrom(){
-            return this.from;
-        }
-        public void setTo(To to){
-            this.to = to;
-        }
-        public To getTo(){
-            return this.to;
-        }
-    }
-
-    public class Aired
-    {
-        private String from;
-
-        private String to;
-
-        private Prop prop;
-
-        private String string;
-
-        public void setFrom(String from){
-            this.from = from;
-        }
-        public String getFrom(){
-            return this.from;
-        }
-        public void setTo(String to){
-            this.to = to;
-        }
-        public String getTo(){
-            return this.to;
-        }
-        public void setProp(Prop prop){
-            this.prop = prop;
-        }
-        public Prop getProp(){
-            return this.prop;
-        }
-        public void setString(String string){
-            this.string = string;
-        }
-        public String getString(){
-            return this.string;
-        }
-    }
-
-
-    public class Broadcast
-    {
-        private String day;
-
-        private String time;
-
-        private String timezone;
-
-        private String string;
-
-        public void setDay(String day){
-            this.day = day;
-        }
-        public String getDay(){
-            return this.day;
-        }
-        public void setTime(String time){
-            this.time = time;
-        }
-        public String getTime(){
-            return this.time;
-        }
-        public void setTimezone(String timezone){
-            this.timezone = timezone;
-        }
-        public String getTimezone(){
-            return this.timezone;
-        }
-        public void setString(String string){
-            this.string = string;
-        }
-        public String getString(){
-            return this.string;
-        }
-    }
 
     public class Studios
     {
@@ -423,41 +280,6 @@ public class OnePieceCollection {
         }
     }
 
-    public class Genres
-    {
-        private int mal_id;
-
-        private String type;
-
-        private String name;
-
-        private String url;
-
-        public void setMal_id(int mal_id){
-            this.mal_id = mal_id;
-        }
-        public int getMal_id(){
-            return this.mal_id;
-        }
-        public void setType(String type){
-            this.type = type;
-        }
-        public String getType(){
-            return this.type;
-        }
-        public void setName(String name){
-            this.name = name;
-        }
-        public String getName(){
-            return this.name;
-        }
-        public void setUrl(String url){
-            this.url = url;
-        }
-        public String getUrl(){
-            return this.url;
-        }
-    }
 
 
     public class Data
@@ -492,7 +314,6 @@ public class OnePieceCollection {
 
         private boolean airing;
 
-        private Aired aired;
 
         private String duration;
 
@@ -518,15 +339,11 @@ public class OnePieceCollection {
 
         private String year;
 
-        private Broadcast broadcast;
-
         private List<String> producers;
 
         private List<String> licensors;
 
         private List<Studios> studios;
-
-        private List<Genres> genres;
 
         private List<String> explicit_genres;
 
@@ -568,12 +385,18 @@ public class OnePieceCollection {
         public List<Titles> getTitles(){
             return this.titles;
         }
-        public void setTitle(String title){
+
+        public void setTitle(String title) {
             this.title = title;
+            notifyPropertyChanged(BR.title);
         }
+
+        @Bindable
         public String getTitle(){
             return this.title;
         }
+
+
         public void setTitle_english(String title_english){
             this.title_english = title_english;
         }
@@ -622,12 +445,6 @@ public class OnePieceCollection {
         public boolean getAiring(){
             return this.airing;
         }
-        public void setAired(Aired aired){
-            this.aired = aired;
-        }
-        public Aired getAired(){
-            return this.aired;
-        }
         public void setDuration(String duration){
             this.duration = duration;
         }
@@ -652,12 +469,16 @@ public class OnePieceCollection {
         public int getScored_by(){
             return this.scored_by;
         }
+
         public void setRank(int rank){
             this.rank = rank;
+            notifyPropertyChanged(BR.rank);
         }
-        public int getRank(){
-            return this.rank;
-        }
+
+        @Bindable
+        public int getRank(){return this.rank;}
+
+
         public void setPopularity(int popularity){
             this.popularity = popularity;
         }
@@ -700,12 +521,6 @@ public class OnePieceCollection {
         public String getYear(){
             return this.year;
         }
-        public void setBroadcast(Broadcast broadcast){
-            this.broadcast = broadcast;
-        }
-        public Broadcast getBroadcast(){
-            return this.broadcast;
-        }
         public void setProducers(List<String> producers){
             this.producers = producers;
         }
@@ -723,12 +538,6 @@ public class OnePieceCollection {
         }
         public List<Studios> getStudios(){
             return this.studios;
-        }
-        public void setGenres(List<Genres> genres){
-            this.genres = genres;
-        }
-        public List<Genres> getGenres(){
-            return this.genres;
         }
         public void setExplicit_genres(List<String> explicit_genres){
             this.explicit_genres = explicit_genres;
