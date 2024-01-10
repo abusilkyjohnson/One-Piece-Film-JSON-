@@ -459,41 +459,6 @@ public class OnePieceCollection {
         }
     }
 
-    public class Demographics
-    {
-        private int mal_id;
-
-        private String type;
-
-        private String name;
-
-        private String url;
-
-        public void setMal_id(int mal_id){
-            this.mal_id = mal_id;
-        }
-        public int getMal_id(){
-            return this.mal_id;
-        }
-        public void setType(String type){
-            this.type = type;
-        }
-        public String getType(){
-            return this.type;
-        }
-        public void setName(String name){
-            this.name = name;
-        }
-        public String getName(){
-            return this.name;
-        }
-        public void setUrl(String url){
-            this.url = url;
-        }
-        public String getUrl(){
-            return this.url;
-        }
-    }
 
     public class Data
     {
@@ -566,8 +531,6 @@ public class OnePieceCollection {
         private List<String> explicit_genres;
 
         private List<String> themes;
-
-        private List<Demographics> demographics;
 
         public void setMal_id(int mal_id){
             this.mal_id = mal_id;
@@ -778,12 +741,6 @@ public class OnePieceCollection {
         }
         public List<String> getThemes(){
             return this.themes;
-        }
-        public void setDemographics(List<Demographics> demographics){
-            this.demographics = demographics;
-        }
-        public List<Demographics> getDemographics(){
-            return this.demographics;
         }
     }
 
