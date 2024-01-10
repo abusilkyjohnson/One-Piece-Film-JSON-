@@ -46,7 +46,15 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-
+    //swipe-to-refresh Layout
      implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0-alpha01")
+
+    //glide
+    implementation ("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.16.0")//must be same version a glide
+    //Glide includes a flexible API that allows developers to plug in to almost any network stack.
+    //It's a very important and very useful library for displaying images, and I use it in my personal applications.
+
+
 
 }

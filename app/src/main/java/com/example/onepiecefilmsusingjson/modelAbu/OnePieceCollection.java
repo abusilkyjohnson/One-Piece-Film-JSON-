@@ -1,14 +1,22 @@
 package com.example.onepiecefilmsusingjson.modelAbu;
 
+import android.widget.ImageView;
+
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
+import androidx.databinding.BindingAdapter;
 
+import com.bumptech.glide.Glide;
 import com.example.onepiecefilmsusingjson.BR;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.microedition.khronos.opengles.GL;
+
+import retrofit2.http.Url;
 
 //our class online from json to pojo converter
 public class OnePieceCollection extends BaseObservable {
@@ -288,7 +296,20 @@ public class OnePieceCollection extends BaseObservable {
 
         private String url;
 
+        @SerializedName("images")
+        @Expose
         private Images images;
+
+        @BindingAdapter({"images"})
+       public void LoadImage(ImageView imgV, String imgUrl)
+        {
+            imgUrl = url ;
+
+            Glide.with(imgV.getContext())
+                            .load(imgUrl)
+                            .into(imgV);
+        }
+
 
         private Trailer trailer;
 
