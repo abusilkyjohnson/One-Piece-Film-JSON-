@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void GetOnePiece(){
 
-        viewModel.getAllOnePiece().observe(this, new Observer<List<OnePieceCollection.>>() {
+        viewModel.getAllOnePiece().observe(this, new Observer<List<OnePieceCollection.Titles>>(){
             @Override
             public void onChanged(List<OnePieceCollection.Titles> onePieceCollectionsLive) {
                 opCollection = (List<OnePieceCollection.Titles>) onePieceCollectionsLive;

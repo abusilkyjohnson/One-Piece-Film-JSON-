@@ -18,7 +18,7 @@ import java.util.List;
 
 public class OnePieceAdapter extends RecyclerView.Adapter<OnePieceAdapter.OnePieceViewHolder> {
     private Context context;
-    private List<OnePieceCollection.Titles> onePieceCollectionList;
+    private List<OnePieceCollection> onePieceCollectionList;
 
     public OnePieceAdapter(Context context, List<OnePieceCollection.Titles> onePieceCollectionList) {
         this.context = context;
