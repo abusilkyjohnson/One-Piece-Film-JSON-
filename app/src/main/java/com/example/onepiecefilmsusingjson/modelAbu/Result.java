@@ -17,7 +17,7 @@ public class Result {
 
     @SerializedName("data")
     @Expose
-    private List<OnePieceCollection> data;
+    private List<OnePieceCollection.Titles> data;
 
     public Integer getPagination() {
         return pagination;
@@ -27,11 +27,11 @@ public class Result {
         this.pagination = pagination;
     }
 
-    public List<OnePieceCollection> getData() {
+    public List<OnePieceCollection.Titles> getData() {
         return data;
     }
 
-    public void setData(List<OnePieceCollection> data) {
+    public void setData(List<OnePieceCollection.Titles> data) {
         this.data = data;
     }
 

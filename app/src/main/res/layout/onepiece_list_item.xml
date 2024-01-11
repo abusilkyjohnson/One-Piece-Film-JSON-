@@ -7,10 +7,10 @@
     <data>
         <variable
             name="film"
-            type="com.example.onepiecefilmsusingjson.modelAbu.OnePieceCollection.Data" />
+            type="com.example.onepiecefilmsusingjson.modelAbu.OnePieceCollection.Titles" />
         <variable
-            name="img"
-            type="com.example.onepiecefilmsusingjson.modelAbu.OnePieceCollection" />
+            name="data"
+            type="com.example.onepiecefilmsusingjson.modelAbu.OnePieceCollection.Data" />
         
         
     </data>
@@ -35,7 +35,7 @@
             android:layout_height="match_parent">
             
             <ImageView
-                bind:images="@{film.LoadImage()}"
+                bind:images="@{data.LoadImage()}"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:id="@+id/onePieceFilm"
@@ -54,7 +54,7 @@
                 android:id="@+id/onePieceTitle"/>
 
             <TextView
-                android:text="@{Integer.toString(film.rank)}"
+                android:text="@{Integer.toString(data.rank)}"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/onePieceTitle"

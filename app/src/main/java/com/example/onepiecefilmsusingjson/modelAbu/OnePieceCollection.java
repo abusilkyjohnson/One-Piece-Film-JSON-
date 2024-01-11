@@ -321,6 +321,7 @@ public class OnePieceCollection extends BaseObservable {
 
         private String title_english;
 
+
         private String title_japanese;
 
         private List<String> title_synonyms;

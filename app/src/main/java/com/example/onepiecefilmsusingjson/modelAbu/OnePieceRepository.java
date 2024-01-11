@@ -22,15 +22,15 @@ public class OnePieceRepository {
     //application or a local data from a database that we have done in the previous apps using the room databaseIt shields
     //the ViewModel from the complexities of interacting directly with these sources.
 
-    private ArrayList<OnePieceCollection> onePiece = new ArrayList<>();
-    private MutableLiveData<List<OnePieceCollection>> mutableLiveData = new MutableLiveData<>();
+    private List<OnePieceCollection.Titles> onePiece = new ArrayList<>();
+    private MutableLiveData<List<OnePieceCollection.Titles>> mutableLiveData = new MutableLiveData<>();
     private Application application;
 
     public OnePieceRepository(Application application) {
         this.application = application;//this will allow us to access the resource file we could u the R.string.q to reference url instead
     }
 
-    public MutableLiveData<List<OnePieceCollection>> getMutableLiveData() {
+    public MutableLiveData<List<OnePieceCollection.Titles>> getMutableLiveData() {
         OnePieceApiService onePieceApiService = RetrofitAbuInstances.getService();
         Call<Result> call = onePieceApiService.GetOnePieceTitle(application.getApplicationContext().getString(R.string.q));
 
@@ -40,7 +40,7 @@ public class OnePieceRepository {
                 Result result = response.body();//this getting the info an putting it in the response body
                 if(result != null && result.getData() != null)
                 {
-                   onePiece =  (ArrayList<OnePieceCollection>) result.getData();
+                   onePiece =  (List<OnePieceCollection.Titles>) result.getData();
                    mutableLiveData.setValue(onePiece);
                 }
             }
